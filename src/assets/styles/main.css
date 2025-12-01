@@ -1,0 +1,163 @@
+@import "tailwindcss";
+
+@font-face {
+    src: url(../fonts/Montserrat.ttf);
+    font-family: mont;
+    font-display: swap;
+}
+
+@font-face {
+    src: url(../fonts/Inter.ttf);
+    font-family: inter;
+    font-display: swap;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary);
+    border-radius: 5px;
+}
+
+@supports not selector(::-webkit-scrollbar) {
+    body {
+        scrollbar-color: var(--primary) #232E33;
+    }
+}
+
+hr {
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #88888855;
+    margin: 7px 0;
+}
+
+::selection {
+    background: transparent;
+}
+
+:root {
+    --text-color: #f3f1f8;
+    --text-grey: #a1a5aa;
+    --card-background: oklch(27.9% 0.041 260.031);
+    --card-background-hover: oklch(37.2% 0.044 257.287);
+    --card-border: oklch(37.2% 0.044 257.287);
+    --card-loading: 40 57 85;
+    --background-color: radial-gradient(ellipse at top left, #0d1927, #0c0d13);
+    --primary: oklch(58.8% 0.158 241.966);
+    --primary-gradient: linear-gradient(90deg, #0055ff, #42b0c9);
+    --secondary: oklch(48.8% 0.243 264.376);
+    --border-animation: #0055ff, #42b0c9 10%, #0055ff, transparent 50%, #368ed6;
+    --text-animation: linear-gradient(to left, #00fed0, #0093ec);
+    --text-animation-long: linear-gradient(90deg, #00fed0, #0093ec, #00fed0, #0093ec, #00fed0);
+
+    --cardbanner: linear-gradient(45deg, #0055ff, #42b0c9);
+    --commandslist-tab-border: #1d1e28;
+    --commandslist-tab-borderactive: #593cffce;
+}
+
+main {
+    padding-top: 150px;
+    flex: 1;
+}
+
+.markedtext {
+    background: var(--text-animation);
+}
+
+.markedtext-animated {
+    background: var(--text-animation-long);
+    background-size: 200% 200%;
+    animation: animatedGradient 2s infinite linear;
+    position: relative;
+    z-index: 0;
+}
+
+.markedtext,
+.markedtext-animated {
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 800;
+}
+
+.markedtext-animated::after,
+.markedtext::after {
+    content: attr(data-text);
+    background: inherit;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: blur(4px);
+    opacity: .7;
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    transition: opacity .1s ease-in-out;
+}
+
+@keyframes animatedGradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    100% {
+        background-position: 100% 50%;
+    }
+}
+
+.underlinetext {
+    position: relative;
+    white-space: nowrap;
+}
+
+.underlinetext::after {
+    --deco-height: 0.4em;
+    content: "";
+    position: absolute;
+    left: -10px;
+    right: -10px;
+    bottom: calc(var(--deco-height) * -0.8);
+    height: var(--deco-height);
+    color: var(--primary);
+    background-color: var(--primary);
+    mask: url("data:image/svg+xml,%3Csvg width='100' height='64' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg clip-path='url(%23a)'%3E%3Cpath d='M-17 30.5C-1 22 72-4 54 13 37.9 28.2-2.5 57.5 16 55.5s72-29 104-40' stroke='currentColor' stroke-width='10'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='a'%3E%3Cpath fill='%23fff' d='M0 0h100v64H0z'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E%0A") round center bottom / contain;
+}
+
+input::selection {
+    background-color: #368ed6;
+}
+
+/* Errors */
+
+.errorBackground div {
+    transform: translate3d(0, 0, 0) rotateX(60deg) rotateY(0) rotate(0) rotate3d(0, 0, 0, 0deg) skewX(0) skewY(0) scale3d(1, 1, 1) !important;
+    -webkit-mask-image: radial-gradient(var(--tw-mask-shape) var(--tw-mask-reach) at var(--tw-mask-at), var(--tw-mask-stops));
+    mask-image: radial-gradient(var(--tw-mask-shape) var(--tw-mask-reach) at var(--tw-mask-at), var(--tw-mask-stops));
+    --tw-mask-shape: ;
+    --tw-mask-reach: closest-side;
+    --tw-mask-at: center;
+    --tw-mask-from-opacity: 1;
+    --tw-mask-point-from: ;
+    --tw-mask-from: rgba(0, 0, 0, var(--tw-mask-from-opacity)) var(--tw-mask-point-from);
+    --tw-mask-to-opacity: 0;
+    --tw-mask-point-to: ;
+    --tw-mask-to: rgba(0, 0, 0, var(--tw-mask-to-opacity)) var(--tw-mask-point-to);
+    --tw-mask-stops: var(--tw-mask-from), var(--tw-mask-to);
+    color: hsl(var(--foreground) / .5);
+    --foreground: var(--hue) 10% 95%;
+    --hue: 210.11764705882354;
+    width: 200%;
+    height: 200%;
+    --dots-color: hsla(0, 0%, 100%, 0.329);
+    background-image: radial-gradient(var(--dots-color) 1px, transparent 0);
+    background-size: 2rem 2rem;
+    background-position: top;
+}

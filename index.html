@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en" data-theme="sapphire" class="dark">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="google" content="notranslate">
+    <link rel="manifest" href="/manifest.json">
+
+    <meta http-equiv="Cache-Control" content="max-age=31536000">
+
+    <!-- Base -->
+    <title>Saphira</title>
+    <meta name="title" content="Saphira">
+    <meta name="theme-color" content="#0055ff">
+    <meta name="description"
+        content="Découvrez un bot Discord de bump automatisé pour booster la visibilité de votre serveur. Augmentez votre communauté avec des bump réguliers et attirez plus de membres actifs ! Facile à configurer, fiable et gratuit.">
+    <link rel="icon" href="/favicon.webp">
+
+    <!-- Google / Search Engine Tags -->
+    <meta name="keywords"
+        content="saphira, discord, bot, bump, moderation, utilitaire, fun, saphira bot, français, discord bump">
+    <meta itemprop="name" content="Saphira">
+    <meta itemprop="description"
+        content="Découvrez un bot Discord de bump automatisé pour booster la visibilité de votre serveur. Augmentez votre communauté avec des bump réguliers et attirez plus de membres actifs ! Facile à configurer, fiable et gratuit.">
+
+    <!-- OpenGraph -->
+    <meta property="description"
+        content="Découvrez un bot Discord de bump automatisé pour booster la visibilité de votre serveur. Augmentez votre communauté avec des bump réguliers et attirez plus de membres actifs !" />
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://saphira-bump.fr/">
+    <meta property="og:title" content="Saphira">
+    <meta property="og:description"
+        content="Découvrez un bot Discord de bump automatisé pour booster la visibilité de votre serveur. Augmentez votre communauté avec des bump réguliers et attirez plus de membres actifs ! Facile à configurer, fiable et gratuit.">
+    <meta name="og:image" content="https://i.ibb.co/Q9n0CgL/favicon.jpg">
+
+    <!-- Twitter -->
+    <meta name="twitter:title" content="Saphira">
+    <meta name="twitter:description"
+        content="Découvrez un bot Discord de bump automatisé pour booster la visibilité de votre serveur. Augmentez votre communauté avec des bump réguliers et attirez plus de membres actifs !">
+    <meta name="twitter:image" content="https://i.ibb.co/Q9n0CgL/favicon.jpg">
+    <style>
+        .loader {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            align-items: center;
+            --color: hsl(0, 0%, 87%);
+            --animation: 2s ease-in-out infinite;
+        }
+
+        .loader .circle {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            width: 20px;
+            height: 20px;
+            border: solid 2px var(--color);
+            border-radius: 50%;
+            margin: 0 10px;
+            background-color: transparent;
+            transform: scale(1.5);
+            opacity: 0.5;
+            animation: circle-keys var(--animation);
+        }
+
+        .loader .circle .dot {
+            position: absolute;
+            transform: translate(-50%, -50%) scale(0);
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background-color: var(--color);
+            animation: dot-keys var(--animation);
+        }
+
+        .loader .circle .outline {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            animation: outline-keys var(--animation);
+        }
+
+        .loader .circle:nth-child(2) {
+            animation-delay: 0.3s;
+        }
+
+        .loader .circle:nth-child(3) {
+            animation-delay: 0.6s;
+        }
+
+        .loader .circle:nth-child(4) {
+            animation-delay: 0.9s;
+        }
+
+        .loader .circle:nth-child(5) {
+            animation-delay: 1.2s;
+        }
+
+        .loader .circle:nth-child(2) .dot {
+            animation-delay: 0.3s;
+        }
+
+        .loader .circle:nth-child(3) .dot {
+            animation-delay: 0.6s;
+        }
+
+        .loader .circle:nth-child(4) .dot {
+            animation-delay: 0.9s;
+        }
+
+        .loader .circle:nth-child(5) .dot {
+            animation-delay: 1.2s;
+        }
+
+        .loader .circle:nth-child(1) .outline {
+            animation-delay: 0.9s;
+        }
+
+        .loader .circle:nth-child(2) .outline {
+            animation-delay: 1.2s;
+        }
+
+        .loader .circle:nth-child(3) .outline {
+            animation-delay: 1.5s;
+        }
+
+        .loader .circle:nth-child(4) .outline {
+            animation-delay: 1.8s;
+        }
+
+        .loader .circle:nth-child(5) .outline {
+            animation-delay: 2.1s;
+        }
+
+        @keyframes circle-keys {
+            0% {
+                transform: scale(1.5);
+                opacity: 0.5;
+            }
+
+            50% {
+                transform: scale(1);
+                opacity: 1;
+            }
+
+            100% {
+                transform: scale(1.5);
+                opacity: 0.5;
+            }
+        }
+
+        @keyframes dot-keys {
+            0% {
+                transform: scale(0);
+            }
+
+            50% {
+                transform: scale(1);
+            }
+
+            100% {
+                transform: scale(0);
+            }
+        }
+
+        @keyframes outline-keys {
+            0% {
+                transform: scale(0);
+                outline: solid 20px var(--color);
+                outline-offset: 0;
+                opacity: 1;
+            }
+
+            100% {
+                transform: scale(1);
+                outline: solid 0 transparent;
+                outline-offset: 20px;
+                opacity: 0;
+            }
+        }
+
+        /* 404 */
+
+        .row svg {
+            width: 100%;
+            margin: 0 50vh 0 -20px;
+        }
+
+        .defaulterror button.active {
+            background-color: #2a9d8f;
+        }
+
+        @media screen and (max-width: 767px) {
+            .row {
+                flex-direction: column;
+            }
+
+            .row svg {
+                margin: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+    <script type="module" src="/src/index.jsx"></script>
+</body>
+<script nonce="saphira">
+    function consoleMessage() {
+        let time = performance.timing;
+
+        console.log("Loaded in " + Math.floor(time.loadEventStart - time.navigationStart) + "ms")
+    }
+
+    window.addEventListener('load', consoleMessage);
+</script>
+
+</html>
