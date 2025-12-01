@@ -22,6 +22,7 @@ const ScrollToTop = lazyWithDelay(() => import("./components/ScrollToTop").then(
 
 // Pages
 const Home = lazyWithDelay(() => import("./pages/Home").then(module => ({ default: module.Home })));
+const Collection = lazyWithDelay(() => import("./pages/Collection").then(module => ({ default: module.Collection })));
 const Secret = lazyWithDelay(() => import("./pages/Secret").then(module => ({ default: module.Secret })));
 
 // Errors
@@ -62,6 +63,7 @@ const Content = () => {
                 <NavBar />
                 <Routes>
                     <Route path="/" element={<Home />} />
+                    <Route path="/collection" element={<Collection />} />
                     <Route path="/secret" element={<Secret />} />
 
                     <Route path="/error/:error" element={<Error />} />
