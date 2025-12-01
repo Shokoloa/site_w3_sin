@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams, useLocation } from 'react-router-dom';
 import gsap from "gsap";
-import img from '../assets/images/404.svg';
+import img from '../assets/404.svg';
 
 export const Error = ({ saveError }) => {
     let { error } = useParams();
