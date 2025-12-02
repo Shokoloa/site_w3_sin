@@ -6,11 +6,7 @@ export const Secret = () => {
 
     useEffect(() => {
         const el = audioRef.current;
-        if (el) {
-            el.play().catch(() => {
-                console.warn("Autoplay bloqué par le navigateur");
-            });
-        }
+        if (el) el.play().catch(() => console.warn("Autoplay bloqué par le navigateur"));
     }, []);
 
     return (

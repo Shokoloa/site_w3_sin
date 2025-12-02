@@ -1,18 +1,6 @@
-import { useState, useEffect, useRef } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import logo from '../assets/favicon.webp';
-import { discord, link, house, staff } from '../Icons';
-
-const SVGStars = (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" fill="none" width="24" height="24">
-        <path style={{ mixBlendMode: 'screen' }} d="M7.9987 5.41658C7.9987 5.27276 7.88211 5.15617 7.73828 5.15617C6.87533 5.15617 6.17578 4.45662 6.17578 3.59367C6.17578 3.44984 6.05919 3.33325 5.91536 3.33325C5.77154 3.33325 5.65495 3.44984 5.65495 3.59367C5.65495 4.45662 4.9554 5.15617 4.09245 5.15617C3.94862 5.15617 3.83203 5.27276 3.83203 5.41658C3.83203 5.56041 3.94862 5.677 4.09245 5.677C4.9554 5.677 5.65495 6.37655 5.65495 7.2395C5.65495 7.38333 5.77154 7.49992 5.91536 7.49992C6.05919 7.49992 6.17578 7.38333 6.17578 7.2395C6.17578 6.37655 6.87533 5.677 7.73828 5.677C7.88211 5.677 7.9987 5.56041 7.9987 5.41658Z" fill="#EFB442" />
-        <path d="M7.9987 5.41658C7.9987 5.27276 7.88211 5.15617 7.73828 5.15617C6.87533 5.15617 6.17578 4.45662 6.17578 3.59367C6.17578 3.44984 6.05919 3.33325 5.91536 3.33325C5.77154 3.33325 5.65495 3.44984 5.65495 3.59367C5.65495 4.45662 4.9554 5.15617 4.09245 5.15617C3.94862 5.15617 3.83203 5.27276 3.83203 5.41658C3.83203 5.56041 3.94862 5.677 4.09245 5.677C4.9554 5.677 5.65495 6.37655 5.65495 7.2395C5.65495 7.38333 5.77154 7.49992 5.91536 7.49992C6.05919 7.49992 6.17578 7.38333 6.17578 7.2395C6.17578 6.37655 6.87533 5.677 7.73828 5.677C7.88211 5.677 7.9987 5.56041 7.9987 5.41658Z" fill="#EFB442" fillOpacity="0.5" />
-        <path style={{ mixBlendMode: 'screen' }} d="M14.25 4.99992C14.25 4.7698 14.0634 4.58325 13.8333 4.58325C13.6033 4.58325 13.4167 4.7698 13.4167 4.99992C13.4167 7.07065 11.7377 8.74992 9.66667 8.74992C9.43658 8.74992 9.25 8.9365 9.25 9.16659C9.25 9.39667 9.43658 9.58325 9.66667 9.58325C11.7378 9.58325 13.4167 11.2618 13.4167 13.3333C13.4167 13.5633 13.6033 13.7499 13.8333 13.7499C14.0634 13.7499 14.25 13.5633 14.25 13.3333C14.25 11.2617 15.9284 9.58325 18 9.58325C18.2301 9.58325 18.4167 9.39667 18.4167 9.16659C18.4167 8.9365 18.2301 8.74992 18 8.74992C15.9285 8.74992 14.25 7.07069 14.25 4.99992Z" fill="#EFB442" />
-        <path d="M14.25 4.99992C14.25 4.7698 14.0634 4.58325 13.8333 4.58325C13.6033 4.58325 13.4167 4.7698 13.4167 4.99992C13.4167 7.07065 11.7377 8.74992 9.66667 8.74992C9.43658 8.74992 9.25 8.9365 9.25 9.16659C9.25 9.39667 9.43658 9.58325 9.66667 9.58325C11.7378 9.58325 13.4167 11.2618 13.4167 13.3333C13.4167 13.5633 13.6033 13.7499 13.8333 13.7499C14.0634 13.7499 14.25 13.5633 14.25 13.3333C14.25 11.2617 15.9284 9.58325 18 9.58325C18.2301 9.58325 18.4167 9.39667 18.4167 9.16659C18.4167 8.9365 18.2301 8.74992 18 8.74992C15.9285 8.74992 14.25 7.07069 14.25 4.99992Z" fill="#EFB442" fillOpacity="0.5" />
-        <path style={{ mixBlendMode: 'screen' }} d="M6.75 10.4167C6.75 10.1866 6.56345 10 6.33333 10C6.10322 10 5.91667 10.1866 5.91667 10.4167C5.91667 11.7974 4.79738 12.9167 3.41667 12.9167C3.18655 12.9167 3 13.1032 3 13.3333C3 13.5634 3.18655 13.75 3.41667 13.75C4.79738 13.75 5.91667 14.8692 5.91667 16.25C5.91667 16.4801 6.10322 16.6667 6.33333 16.6667C6.56345 16.6667 6.75 16.4801 6.75 16.25C6.75 14.8692 7.86928 13.75 9.25 13.75C9.48008 13.75 9.66667 13.5634 9.66667 13.3333C9.66667 13.1032 9.48008 12.9167 9.25 12.9167C7.86928 12.9167 6.75 11.7974 6.75 10.4167Z" fill="#EFB442" />
-        <path d="M6.75 10.4167C6.75 10.1866 6.56345 10 6.33333 10C6.10322 10 5.91667 10.1866 5.91667 10.4167C5.91667 11.7974 4.79738 12.9167 3.41667 12.9167C3.18655 12.9167 3 13.1032 3 13.3333C3 13.5634 3.18655 13.75 3.41667 13.75C4.79738 13.75 5.91667 14.8692 5.91667 16.25C5.91667 16.4801 6.10322 16.6667 6.33333 16.6667C6.56345 16.6667 6.75 16.4801 6.75 16.25C6.75 14.8692 7.86928 13.75 9.25 13.75C9.48008 13.75 9.66667 13.5634 9.66667 13.3333C9.66667 13.1032 9.48008 12.9167 9.25 12.9167C7.86928 12.9167 6.75 11.7974 6.75 10.4167Z" fill="#EFB442" fillOpacity="0.5" />
-    </svg>
-);
+import { house, book, donate, github } from '../Icons';
+import { useState, useEffect, useRef } from 'react';
 
 export const NavBar = () => {
     const [isMobile, setIsMobile] = useState(false);
@@ -141,62 +129,30 @@ export const NavBar = () => {
                                 <div className="flex items-center">
                                     <img src="https://i.ibb.co/Q9n0CgL/favicon.jpg" className="h-10 w-10 rounded-full" draggable="false"
                                         alt="Logo" />
-                                    <h1 className="ml-3 text-xl font-bold text-white">Caca</h1>
+                                    <h1 className="ml-3 text-xl font-bold text-white">Oeuvres d'art</h1>
                                 </div>
                             </div>
 
                             <div className="space-y-4">
                                 <button onClick={() => window.location.href = '/'}
                                     className={`w-full text-left space-x-3 px-4 py-3 hover:text-white hover:bg-slate-700/50 rounded-lg transition-all duration-200 flex items-center ${checkActive('/') ? 'bg-slate-700/50 text-white' : 'hover:bg-slate-700/50 text-slate-300 hover:text-white'}`}>
-                                    <i className="fa-solid fa-home w-4"></i>
                                     <span className="text-sm">
-                                        Label
+                                        Accueil
                                     </span>
                                 </button>
 
-                                <h3 className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-3 mt-4">
-                                    Label
-                                </h3>
-
-                                <button onClick={() => window.location.href = '/bumps'}
-                                    className={`w-full text-left space-x-3 px-4 py-3 hover:text-white hover:bg-slate-700/50 rounded-lg transition-all duration-200 flex items-center ${checkActive('/bumps') ? 'bg-slate-700/50 text-white' : 'hover:bg-slate-700/50 text-slate-300 hover:text-white'}`}>
-                                    <i className="fa-solid fa-user-plus w-4"></i>
+                                <button onClick={() => window.location.href = '/collection'}
+                                    className={`w-full text-left space-x-3 px-4 py-3 hover:text-white hover:bg-slate-700/50 rounded-lg transition-all duration-200 flex items-center ${checkActive('/collection') ? 'bg-slate-700/50 text-white' : 'hover:bg-slate-700/50 text-slate-300 hover:text-white'}`}>
                                     <span className="text-sm">
-                                        Label
+                                        Collection
                                     </span>
                                 </button>
 
-                                <button onClick={() => window.location.href = '/votes'}
-                                    className={`w-full text-left space-x-3 px-4 py-3 hover:text-white hover:bg-slate-700/50 rounded-lg transition-all duration-200 flex items-center ${checkActive('/votes') ? 'bg-slate-700/50 text-white' : 'hover:bg-slate-700/50 text-slate-300 hover:text-white'}`}>
+                                <button onClick={() => window.location.href = '/donation'}
+                                    className={`w-full text-left space-x-3 px-4 py-3 hover:text-white hover:bg-slate-700/50 rounded-lg transition-all duration-200 flex items-center ${checkActive('/donation') ? 'bg-slate-700/50 text-white' : 'hover:bg-slate-700/50 text-slate-300 hover:text-white'}`}>
                                     <i className="fa-regular fa-compass w-4"></i>
                                     <span className="text-sm">
-                                        Label
-                                    </span>
-                                </button>
-
-                                <button onClick={() => window.location.href = '/apps'}
-                                    className={`w-full text-left space-x-3 px-4 py-3 hover:text-white hover:bg-slate-700/50 rounded-lg transition-all duration-200 flex items-center ${checkActive('/apps') ? 'bg-slate-700/50 text-white' : 'hover:bg-slate-700/50 text-slate-300 hover:text-white'}`}>
-                                    <i className="fa-solid fa-ticket w-4"></i>
-                                    <span className="text-sm">
-                                        Label
-                                    </span>
-                                </button>
-
-                                <hr />
-
-                                <button onClick={() => window.location.href = '/team'}
-                                    className={`w-full text-left space-x-3 px-4 py-3 hover:text-white hover:bg-slate-700/50 rounded-lg transition-all duration-200 flex items-center ${checkActive('/team') ? 'bg-slate-700/50 text-white' : 'hover:bg-slate-700/50 text-slate-300 hover:text-white'}`}>
-                                    <i className="fa-solid fa-chart-line w-4"></i>
-                                    <span className="text-sm">
-                                        Label
-                                    </span>
-                                </button>
-
-                                <button onClick={() => window.location.href = '/premium'}
-                                    className={`w-full text-left space-x-3 px-4 py-3 hover:text-white hover:bg-slate-700/50 rounded-lg transition-all duration-200 flex items-center ${checkActive('/premium') ? 'bg-slate-700/50 text-white' : 'hover:bg-slate-700/50 text-slate-300 hover:text-white'}`}>
-                                    <i className="fa-regular fa-square-check w-4"></i>
-                                    <span className="text-sm">
-                                        Label
+                                        Donation
                                     </span>
                                 </button>
                             </div>
@@ -207,8 +163,11 @@ export const NavBar = () => {
                 <header id="nav-menu" className="fixed w-full z-999">
                     <section id="navcontainer" className={`flex items-center absolute left-1/2 -translate-x-1/2 transition-[top] duration-300 ease-in-out bg-(--card-background)/80 h-14 backdrop-blur-sm rounded-xl px-8 shadow-lg border border-slate-700/30 p-2 ${hidden ? 'top-[-100px]' : 'top-[30px]'}`}>
                         <article className="flex items-center cursor-pointer" onClick={() => navigate('/')}>
-                            <img className="w-10 h-auto ml-[5px] mr-2.5 my-0" src={logo} draggable={false} alt="Logo" width={100} height={100} />
-                            <h1 className="text-base font-[inter] font-semibold text-(--text-color)">Caca</h1>
+                            <div className="w-fit h-full ml-[5px] mr-2.5 my-0">
+                                <svg className="h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 136 26">
+                                    <path id="logo" d="M134.05 9v.01h.03l.66 3.02h-.66l-.01-.02h-.02a3.4 3.4 0 00-1.93-1.84 7.29 7.29 0 00-2.48-.35c-1.7 0-2.15.33-2.15 1.19v4.6c0 .27.06.47.18.61.12.13.3.2.54.2h2c.73 0 1.5-.74 1.84-2.37h.74v.02h.03v5.3h-.74v-.02h-.03c-.18-.96-.45-1.54-.88-1.85a1.63 1.63 0 00-.94-.25h-1.89c-.48 0-.85.4-.85 1.18v4.53c0 .36.14.66.34.87.21.2.5.33.78.33h1.78c2.4 0 3.8-.74 4.84-3.18h.74V21h.03l-.66 4h-13.32v-.03H122v-.81c2.3-.08 2.73-.41 2.73-1.14V11.36c0-.64-.08-1.01-.46-1.22-.38-.21-1.06-.27-2.25-.32H122V9h12.05zM104.9 9c2.66.01 7.15.28 7.15 4.16 0 2.04-1.55 3.43-3.17 4.08l3.93 5.8c.6.9 1.05 1.23 2.18 1.3V25h-3.01c-.46 0-.76-.16-1.14-.73l-4.37-6.7a19 19 0 01-1.5-.08v5.39c0 .9.37 1.22 1.95 1.3V25H100v-.82c1.81-.08 2.19-.49 2.19-1.38V11.29c0-1.15-.27-1.4-2.19-1.47V9zM84.24 9v.8c-.75.05-1.72.5-1.72 1.42 0 .69.25 1.42.68 2.47l3.2 7.92 2.62-8.45c.21-.65.46-1.33.46-1.9 0-.8-.5-1.29-1.8-1.45V9H93v.8c-1.08.09-1.76.53-2.3 2.03l-3.94 11.4c-.43 1.24-.69 1.77-1.19 1.77s-.68-.57-1.18-1.78l-4.45-11.31c-.5-1.3-1-2.02-1.94-2.1V9h6.24zM59.96 9v.8c-2.54.16-2.97.48-2.97 2v7.48c0 3.32 1.27 4.52 4.34 4.52 2.68 0 4.7-1.4 4.7-4.92v-6.12c0-2.44-.65-2.8-2.75-2.96V9H69v.8c-1.55.16-2.1 1-2.1 2.72v6.68c0 3.88-2.5 5.8-6.37 5.8-3.9 0-6.22-1.6-6.22-5.08V12.4c0-1.96-.36-2.36-2.31-2.6V9h7.96zM35.5 9c4.37 0 7.5 3.12 7.5 8s-3.13 8-7.5 8-7.5-3.12-7.5-8 3.13-8 7.5-8zM10.24 0v.78c-3.1 0-3.54.54-3.54 3.5v16.13c0 2.8.43 3.35 2.82 3.35h2.35c3.01 0 6.2-.94 8.3-5.07H21L19.84 25l-2.97-.23c-.98-.04-1.95-.08-2.97-.08H0v-.78c3.15 0 3.58-.54 3.58-3.5V4.28c0-2.96-.43-3.5-3-3.5V0h9.66zM35.5 9.8c-3.71 0-4.8 3.72-4.8 7.2s1.09 7.2 4.8 7.2 4.8-3.72 4.8-7.2-1.09-7.2-4.8-7.2zm70.98.01c-1.05 0-1.5.5-1.5 1.4v5.46c.41.17.82.25 1.24.25 2.15 0 3.2-1.3 3.2-3.6 0-2.12-.87-3.5-2.94-3.5z" fill="white"></path>
+                                </svg>
+                            </div>
                         </article>
                         <span className="h-4 rounded-xs border-2 border-solid border-zinc-600 mx-4" />
                         <nav>
@@ -217,40 +176,33 @@ export const NavBar = () => {
                                     <i className="w-[23px] h-[23px] text-(--text-grey) transition-all duration-500 ease-in-out group-hover:text-(--primary) group-[.active]:text-(--primary)" dangerouslySetInnerHTML={{ __html: house }} />
                                     <span className="w-[120%] mt-1 rounded-xs h-1 group-[.active]:bg-(--primary)"></span>
                                     <span className="invisible opacity-0 group-hover:visible group-hover:opacity-100 bg-(--card-background)/80 border-2 border-(--card-border)/30 text-center rounded-md px-[13px] py-[7px] absolute bottom-[-50px] left-1/2 transform translate-x-[-50%] translate-y-2.5 group-hover:translate-y-0 transition-transform duration-300 ease-in-out whitespace-nowrap max-w-[200px] font-semibold text-[13px] font-inter text-(--text-color) z-10">
-                                        Label
+                                        Accueil
                                     </span>
                                 </li>
-                                <li onClick={() => navigate('/team')} className={`group relative flex items-center flex-col transition-all duration-500 ease-in-out mx-[15px] rounded-sm border border-solid border-transparent cursor-pointer ${checkActive('/team') ? 'active' : ''}`}>
-                                    <i className="w-[23px] h-[23px] text-(--text-grey) transition-all duration-500 ease-in-out group-hover:text-(--primary) group-[.active]:text-(--primary)" dangerouslySetInnerHTML={{ __html: staff }} />
+                                <li onClick={() => navigate('/collection')} className={`group relative flex items-center flex-col transition-all duration-500 ease-in-out mx-[15px] rounded-sm border border-solid border-transparent cursor-pointer ${checkActive('/collection') ? 'active' : ''}`}>
+                                    <i className="w-[23px] h-[23px] text-(--text-grey) transition-all duration-500 ease-in-out group-hover:text-(--primary) group-[.active]:text-(--primary)" dangerouslySetInnerHTML={{ __html: book }} />
                                     <span className="w-[120%] mt-1 rounded-xs h-1 group-[.active]:bg-(--primary)"></span>
                                     <span className="invisible opacity-0 group-hover:visible group-hover:opacity-100 bg-(--card-background)/80 border-2 border-(--card-border)/30 text-center rounded-md px-[13px] py-[7px] absolute bottom-[-50px] left-1/2 transform translate-x-[-50%] translate-y-2.5 group-hover:translate-y-0 transition-transform duration-300 ease-in-out whitespace-nowrap max-w-[200px] font-semibold text-[13px] font-inter text-(--text-color) z-10">
-                                        Label
+                                        Collection
                                     </span>
                                 </li>
-                                <li onClick={() => navigate('/premium')} className={`group relative flex items-center flex-col transition-all duration-500 ease-in-out mx-[15px] rounded-sm border border-solid border-transparent cursor-pointer ${checkActive('/premium') ? 'active' : ''}`} style={{ marginRight: '0' }}>
-                                    <i>{SVGStars}</i>
-                                    <span className="w-[120%] mt-1 rounded-xs h-1 group-[.active]:bg-amber-400"></span>
+                                <li onClick={() => navigate('/donation')} className={`group relative flex items-center flex-col transition-all duration-500 ease-in-out mx-[15px] rounded-sm border border-solid border-transparent cursor-pointer ${checkActive('/donation') ? 'active' : ''}`} style={{ marginRight: '0' }}>
+                                    <i className="w-[23px] h-[23px] text-(--text-grey) transition-all duration-500 ease-in-out group-hover:text-(--primary) group-[.active]:text-(--primary)" dangerouslySetInnerHTML={{ __html: donate }} />
+                                    <span className="w-[120%] mt-1 rounded-xs h-1 group-[.active]:bg-(--primary)"></span>
                                     <span className="invisible opacity-0 group-hover:visible group-hover:opacity-100 bg-(--card-background)/80 border-2 border-(--card-border)/30 text-center rounded-md px-[13px] py-[7px] absolute bottom-[-50px] left-1/2 transform translate-x-[-50%] translate-y-2.5 group-hover:translate-y-0 transition-transform duration-300 ease-in-out whitespace-nowrap max-w-[200px] font-semibold text-[13px] font-inter text-(--text-color) z-10">
-                                        Label
+                                        Donation
                                     </span>
                                 </li>
                             </ul>
                         </nav>
                         <span className="h-4 rounded-xs border-2 border-solid border-zinc-600 mx-4" />
                         <article className="flex items-center">
-                            <div className="group relative flex items-center flex-col transition-all duration-500 ease-in-out mx-[25px] rounded-sm border border-solid border-transparent cursor-pointer ml-0" onClick={() => window.open('support')}>
-                                <i className="w-[23px] h-[23px] text-(--text-grey) transition-all duration-500 ease-in-out group-hover:text-(--primary)" dangerouslySetInnerHTML={{ __html: discord }}></i>
+                            <div className="group relative flex items-center flex-col transition-all duration-500 ease-in-out mx-[25px] rounded-sm border border-solid border-transparent cursor-pointer ml-0" onClick={() => window.open('https://github.com/Shokoloa/site_w3_sin')}>
+                                <i className="w-[23px] h-[23px] text-(--text-grey) transition-all duration-500 ease-in-out group-hover:text-(--primary)" dangerouslySetInnerHTML={{ __html: github }}></i>
                                 <span className="invisible opacity-0 group-hover:visible group-hover:opacity-100 bg-(--card-background)/80 border-2 border-(--card-border)/30 text-center rounded-md px-[13px] py-[7px] absolute bottom-[-50px] left-1/2 transform translate-x-[-50%] translate-y-2.5 group-hover:translate-y-0 transition-transform duration-300 ease-in-out whitespace-nowrap max-w-[200px] font-semibold text-[13px] font-inter text-(--text-color) z-10">
-                                    Label
+                                    Github
                                 </span>
                             </div>
-                            <div className="group relative flex items-center flex-col transition-all duration-500 ease-in-out mx-[25px] rounded-sm border border-solid border-transparent cursor-pointer mr-0 ml-0" onClick={() => window.open('invite')}>
-                                <i className="w-[23px] h-[23px] text-(--text-grey) transition-all duration-500 ease-in-out group-hover:text-(--primary)" dangerouslySetInnerHTML={{ __html: link }}></i>
-                                <span className="invisible opacity-0 group-hover:visible group-hover:opacity-100 bg-(--card-background)/80 border-2 border-(--card-border)/30 text-center rounded-md px-[13px] py-[7px] absolute bottom-[-50px] left-1/2 transform translate-x-[-50%] translate-y-2.5 group-hover:translate-y-0 transition-transform duration-300 ease-in-out whitespace-nowrap max-w-[200px] font-semibold text-[13px] font-inter text-(--text-color) z-10">
-                                    Label
-                                </span>
-                            </div>
-                            <span className="h-4 rounded-xs border-2 border-solid border-zinc-600 mx-4" />
                         </article>
                     </section>
                 </header >

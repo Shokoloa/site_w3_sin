@@ -1,0 +1,51 @@
+[
+    {
+        "url": "intendant",
+        "name": "Intendant Ebih-Il, dignitaire sumérien",
+        "explanation": "Cette statuette en albâtre représente Ebih-Il, un haut dignitaire d’Ebla. Assis dans une posture de recueillement, les mains jointes et les yeux incrustés d’obsidienne témoignent du souci du détail propre à l’art mésopotamien du IIIᵉ millénaire av. J.-C.",
+        "date": "02/12/25",
+        "image": "statue-de-l-intendant-ebih-il"
+    },
+    {
+        "url": "antonio_canova",
+        "name": "Psyché ranimée par le baiser de l’Amour",
+        "explanation": "Chef-d’œuvre du sculpteur néoclassique Antonio Canova, cette sculpture illustre le moment où Cupidon réveille Psyché d’un profond sommeil. La composition harmonieuse et le marbre délicatement poli traduisent l’intensité émotionnelle de la scène mythologique.",
+        "date": "02/12/25",
+        "image": "antonio-canova-psyche-ranimee-par-le-baiser-de-l-amour"
+    },
+    {
+        "url": "artemis",
+        "name": "Artémis à la biche (Diane de Versailles)",
+        "explanation": "Cette statue hellénistique représente Artémis, déesse grecque de la chasse, avançant d’un pas vif accompagnée d’une biche. L’élégance du mouvement et la finesse du drapé illustrent le dynamisme et la grâce caractéristiques de la sculpture grecque.",
+        "date": "02/12/25",
+        "image": "artemis-a-la-biche-dite-diane-de-versailles"
+    },
+    {
+        "url": "khorsabad",
+        "name": "Taureau androcephale ailé de Khorsabad",
+        "explanation": "Colossale figure protectrice de l’Assyrie, le lamassu combine corps de taureau, ailes d’aigle et visage humain. Placées à l’entrée des palais, ces statues symbolisaient à la fois puissance et protection pour la cité royale de Khorsabad.",
+        "date": "02/12/25",
+        "image": "cour-khorsabad-taureau-androcephale-aile"
+    },
+    {
+        "url": "elisabeth",
+        "name": "Madame Vigée Le Brun et sa fille",
+        "explanation": "Dans ce portrait tendre et lumineux, Élisabeth Vigée Le Brun se représente aux côtés de sa fille. Le style doux, la chaleur des couleurs et la spontanéité des attitudes incarnent l’art sensible et élégant du portrait français du XVIIIᵉ siècle.",
+        "date": "02/12/25",
+        "image": "elisabeth-louise-vigee-le-brun-madame-vigee-le-brun-et-sa-fille-jeanne-marie-louise-1780-1819"
+    },
+    {
+        "url": "sphinx",
+        "name": "Grand Sphinx de Tanis",
+        "explanation": "Monumentale sculpture en granite, le Sphinx de Tanis associe corps de lion et tête de pharaon, symbole de force et de souveraineté. Son remploi successif par plusieurs dynasties témoigne de son importance au sein de l’art égyptien.",
+        "date": "02/12/25",
+        "image": "grand-sphinx-de-tanis"
+    },
+    {
+        "url": "de-vinci",
+        "name": "La Vierge à l’Enfant avec sainte Anne",
+        "explanation": "Cette composition complexe de Léonard de Vinci représente Sainte Anne, la Vierge Marie et l’Enfant Jésus dans une scène empreinte d’harmonie et de douceur. Le sfumato de Léonard confère aux visages un modelé subtil et une profondeur émotionnelle unique.",
+        "date": "02/12/25",
+        "image": "leonard-de-vinci-la-vierge-a-l-enfant-avec-sainte-anne-musee-du-louvre"
+    }
+]

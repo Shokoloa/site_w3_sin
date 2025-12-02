@@ -12,13 +12,13 @@ export const Collection = () => {
     const navigate = useNavigate();
 
     const Oeuvres = [
-        { name: 'Antonio Canova', subtitle: 'Psyche Ranimée', rating: 4.5, image: AntonioCanova, imageStyle: {}, redirect: '/collection/AntonioCanova', style: { order: 1 } },
-        { name: 'Artémis', subtitle: 'Diane de Versailles', rating: 5, image: Artemis, imageStyle: { objectPosition: "center top" }, redirect: '/collection/Artemis', style: { order: 2 } },
-        { name: 'Vigée Lebrun', subtitle: 'Madame Lebrun', rating: 4.7, image: Elisabeth, imageStyle: { objectPosition: "center 25%" }, redirect: '/collection/Elisabeth', style: { order: 3, gridColumn: 'span 2' } },
-        { name: 'Intendant Ebih-Il', subtitle: 'Mésopotamie', rating: 5, image: Intendant, imageStyle: {}, redirect: '/collection/Intendant', style: { order: 4 } },
-        { name: 'Sphinx de Tanis', subtitle: 'Égypte Antique', rating: 4.3, image: Sphinx, imageStyle: {}, redirect: '/collection/Sphinx', style: { order: 5 } },
-        { name: 'Léonard de Vinci', subtitle: 'Sainte Anne', rating: 4.8, image: DeVinci, imageStyle: {}, redirect: '/collection/DeVinci', style: { order: 6 } },
-        { name: 'Khorsabad', subtitle: 'Taureau Androcéphale Ailé', rating: 4.6, image: Khorsabad, imageStyle: { objectPosition: "center 80%" }, redirect: '/collection/Khorsabad', style: { order: 7, gridColumn: 'span 2' } }
+        { name: 'Antonio Canova', subtitle: 'Psyche Ranimée', rating: 4.5, image: AntonioCanova, imageStyle: {}, redirect: '/collection/antonio_canova', style: { order: 1 } },
+        { name: 'Artémis', subtitle: 'Diane de Versailles', rating: 5, image: Artemis, imageStyle: { objectPosition: "center top" }, redirect: '/collection/artemis', style: { order: 2 } },
+        { name: 'Vigée Lebrun', subtitle: 'Madame Lebrun', rating: 4.7, image: Elisabeth, imageStyle: { objectPosition: "center 25%" }, redirect: '/collection/elisabeth', style: { order: 3, gridColumn: 'span 2' } },
+        { name: 'Intendant Ebih-Il', subtitle: 'Mésopotamie', rating: 5, image: Intendant, imageStyle: {}, redirect: '/collection/intendant', style: { order: 4 } },
+        { name: 'Sphinx de Tanis', subtitle: 'Égypte Antique', rating: 4.3, image: Sphinx, imageStyle: {}, redirect: '/collection/sphinx', style: { order: 5 } },
+        { name: 'Léonard de Vinci', subtitle: 'Sainte Anne', rating: 4.8, image: DeVinci, imageStyle: {}, redirect: '/collection/de-vinci', style: { order: 6 } },
+        { name: 'Khorsabad', subtitle: 'Taureau Androcéphale Ailé', rating: 4.6, image: Khorsabad, imageStyle: { objectPosition: "center 80%" }, redirect: '/collection/khorsabad', style: { order: 7, gridColumn: 'span 2' } }
     ];
 
     return (
@@ -39,7 +39,7 @@ export const Collection = () => {
                                 ⭐ {oeuvre.rating}
                             </div>
 
-                            <div className="absolute bottom-0 left-0 p-5 text-white">
+                            <div className="absolute bottom-0 left-0 p-5 text-(--text-color)">
                                 <h2 className="text-2xl font-bold drop-shadow-lg">{oeuvre.name}</h2>
                                 <p className="text-sm opacity-90">{oeuvre.subtitle}</p>
                             </div>
