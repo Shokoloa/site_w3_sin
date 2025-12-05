@@ -148,7 +148,7 @@ export const NavBar = () => {
                                     </span>
                                 </button>
 
-                                <button onClick={() => window.location.href = '/donation'}
+                                <button onClick={() => window.open('https://www.patreon.com/cw/Monsieur_Je_Vous_Admire')}
                                     className={`w-full text-left space-x-3 px-4 py-3 hover:text-white hover:bg-slate-700/50 rounded-lg transition-all duration-200 flex items-center ${checkActive('/donation') ? 'bg-slate-700/50 text-white' : 'hover:bg-slate-700/50 text-slate-300 hover:text-white'}`}>
                                     <i className="fa-regular fa-compass w-4"></i>
                                     <span className="text-sm">
@@ -186,7 +186,7 @@ export const NavBar = () => {
                                         Collection
                                     </span>
                                 </li>
-                                <li onClick={() => navigate('/donation')} className={`group relative flex items-center flex-col transition-all duration-500 ease-in-out mx-[15px] rounded-sm border border-solid border-transparent cursor-pointer ${checkActive('/donation') ? 'active' : ''}`} style={{ marginRight: '0' }}>
+                                <li onClick={() => window.open('https://www.patreon.com/cw/Monsieur_Je_Vous_Admire')} className={`group relative flex items-center flex-col transition-all duration-500 ease-in-out mx-[15px] rounded-sm border border-solid border-transparent cursor-pointer ${checkActive('/donation') ? 'active' : ''}`} style={{ marginRight: '0' }}>
                                     <i className="w-[23px] h-[23px] text-(--text-grey) transition-all duration-500 ease-in-out group-hover:text-(--primary) group-[.active]:text-(--primary)" dangerouslySetInnerHTML={{ __html: donate }} />
                                     <span className="w-[120%] mt-1 rounded-xs h-1 group-[.active]:bg-(--primary)"></span>
                                     <span className="invisible opacity-0 group-hover:visible group-hover:opacity-100 bg-(--card-background)/80 border-2 border-(--card-border)/30 text-center rounded-md px-[13px] py-[7px] absolute bottom-[-50px] left-1/2 transform translate-x-[-50%] translate-y-2.5 group-hover:translate-y-0 transition-transform duration-300 ease-in-out whitespace-nowrap max-w-[200px] font-semibold text-[13px] font-inter text-(--text-color) z-10">

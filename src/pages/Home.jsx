@@ -18,7 +18,7 @@ export const Home = () => {
                         <i className="w-3.5 sm:w-5 mr-[7px] fill-(--text-color)" dangerouslySetInnerHTML={{ __html: comments }} />
                         Voir la collection
                     </button>
-                    <button className="flex items-center py-1.5 px-3 sm:px-5 sm:py-2 text-xs sm:text font-[inter] text-(--text-color) rounded-md transition-all duration-500 ease cursor-pointer bg-(--card-background-hover) hover:bg-(--card-background-hover)/60" onClick={() => window.open('/support')}>
+                    <button className="flex items-center py-1.5 px-3 sm:px-5 sm:py-2 text-xs sm:text font-[inter] text-(--text-color) rounded-md transition-all duration-500 ease cursor-pointer bg-(--card-background-hover) hover:bg-(--card-background-hover)/60" onClick={() => window.open('https://www.patreon.com/cw/Monsieur_Je_Vous_Admire')}>
                         <i className="w-3.5 sm:w-5 mr-2.5 fill-(--text-color)" dangerouslySetInnerHTML={{ __html: headset }} />
                         Faire une donation
                     </button>
