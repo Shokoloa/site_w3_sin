@@ -29,7 +29,7 @@ export const Collection = () => {
                     {Oeuvres.map((oeuvre, index) => (
                         <article
                             key={index}
-                            className="relative rounded-3xl overflow-hidden shadow-lg cursor-pointer group"
+                            className="relative rounded-3xl overflow-hidden shadow-lg cursor-pointer group animate-shine"
                             style={oeuvre.style}
                             onClick={() => navigate(oeuvre.redirect)}
                         >

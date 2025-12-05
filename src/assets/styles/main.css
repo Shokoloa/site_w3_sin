@@ -161,3 +161,16 @@ input::selection {
     background-size: 2rem 2rem;
     background-position: top;
 }
+
+@keyframes shine {
+    to {
+        background-position-x: -200%;
+    }
+}
+
+.animate-shine {
+    --card-loading: 40 57 85;
+    background: linear-gradient(110deg, rgb(var(--card-loading)/0.4) 8%, rgb(var(--card-loading)/0.8) 18%, rgb(var(--card-loading)/0.4) 33%);
+    background-size: 200% 100%;
+    animation: 1.5s shine linear infinite;
+}
